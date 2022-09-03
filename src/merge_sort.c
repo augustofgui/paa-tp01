@@ -35,7 +35,6 @@ void mergeSort(bigNum *numbers, bigNum L, bigNum R){
     }
 }
 
-//Como o mergeSort
 void merge (bigNum *numbers, bigNum L, bigNum M, bigNum R){
 
     bigNum tamanhovetL = M - L + 1; //O(1)
