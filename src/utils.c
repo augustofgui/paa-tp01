@@ -48,21 +48,29 @@ void swap(bigNum *a, bigNum *b)
   *b = temp;
 }
 
-void write_numbers_array_to_txt_file(bigNum *numbers, bigNum tam)
+void write_numbers_array_to_txt_file(bigNum *numbers, bigNum tam, bigNum numArq)
 {
   FILE *file;
   bigNum i;
 
-  char filename[40] = "unordered_";
+  char filename[40] = "unordered";
 
-  int length = snprintf(NULL, 0, "%llu", tam);
-  char *str = malloc(length + 1);
-  snprintf(str, length + 1, "%llu", tam);
+  int length1 = snprintf(NULL, 0, "%llu", numArq);
+  char *str1 = malloc(length1 + 1);
+  snprintf(str1, length1 + 1, "%llu", numArq);
 
-  strcat(filename, str);
+  strcat(filename, str1);
+  strcat(filename, "_");
+
+  int length2 = snprintf(NULL, 0, "%llu", tam);
+  char *str2 = malloc(length2 + 1);
+  snprintf(str2, length2 + 1, "%llu", tam);
+
+  strcat(filename, str2);
   strcat(filename, ".txt");
 
-  free(str);
+  free(str1);
+  free(str2);
 
   file = fopen(filename, "w");
   if (NULL == file)
@@ -109,7 +117,7 @@ void read_numbers_array_from_txt_file(bigNum *numbers, bigNum tam)
   fclose(file);
 }
 
-void create_random_ordered_file(bigNum tam)
+void create_random_ordered_file(bigNum tam, bigNum numArq)
 {
   bigNum *numbers = NULL;
 
@@ -117,5 +125,5 @@ void create_random_ordered_file(bigNum tam)
 
   numbers = random_shuffle_numbers_array(numbers, tam);
 
-  write_numbers_array_to_txt_file(numbers, tam);
+  write_numbers_array_to_txt_file(numbers, tam, numArq);
 }

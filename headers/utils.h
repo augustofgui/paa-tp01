@@ -14,8 +14,8 @@ bigNum *random_shuffle_numbers_array(bigNum *numbers, bigNum tam);
 void print_array(bigNum arr[], bigNum n);
 void swap(bigNum *a, bigNum *b);
 
-void write_numbers_array_to_txt_file(bigNum *numbers, bigNum tam);
+void write_numbers_array_to_txt_file(bigNum *numbers, bigNum tam, bigNum numArq);
 void read_numbers_array_from_txt_file(bigNum *numbers, bigNum tam);
-void create_random_ordered_file(bigNum tam);
+void create_random_ordered_file(bigNum tam, bigNum numArq);
 
 #endif // UTILS_H
