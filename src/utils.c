@@ -1,5 +1,29 @@
 #include "../headers/utils.h"
 
+bigNum *crate_new_array_with_malloc(bigNum *numbers, bigNum tam){
+  numbers = (bigNum*) malloc(tam * sizeof(bigNum));
+
+    if (numbers == NULL){
+
+        printf("Falta de memoria...");
+
+        return 0;
+    }
+
+    return numbers;
+
+}
+
+//Manter como especificado
+bigNum *deallocates_array(bigNum *numbers){
+
+    free(numbers);
+
+    return NULL;
+}
+
+
+
 bigNum *create_ordered_numbers_array(bigNum *numbers, bigNum tam)
 {
   bigNum i;
@@ -91,7 +115,7 @@ void read_numbers_array_from_txt_file(bigNum *numbers, bigNum tam, bigNum numArq
   FILE *file;
   bigNum i;
 
-  char filename[40] = "unordered_";
+  char filename[40] = "unordered";
 
   int length1 = snprintf(NULL, 0, "%llu", numArq);
   char *str1 = malloc(length1 + 1);
@@ -109,6 +133,8 @@ void read_numbers_array_from_txt_file(bigNum *numbers, bigNum tam, bigNum numArq
 
   free(str1);
   free(str2);
+
+  printf("Filename: %s\n", filename);
 
   file = fopen(filename, "r");
   if (NULL == file)

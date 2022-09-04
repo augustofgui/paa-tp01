@@ -14,16 +14,18 @@ int main(int argc, char *argv[])
 
   // bigNum tam = atoi(argv[1]);
   bigNum i;
-  bigNum tam = 1000;
+  bigNum tam = 100;
 
   bigNum *numbers = NULL;
+
+  numbers = crate_new_array_with_malloc(numbers, tam);
 
   start_t = clock();
   printf("Início do programa de ordenação, start_t = %ld\n", start_t);
 
-  for(i = 1; i <= 20; i++){
-    create_random_ordered_file(tam, i);
-  }
+  read_numbers_array_from_txt_file(numbers, tam, 2);
+
+  mergeSort(numbers, 0, tam);
 
   end_t = clock();
   printf("Fim do programa de ordenação, end_t = %ld\n", end_t);
@@ -41,6 +43,8 @@ int main(int argc, char *argv[])
   // merge_sort(numbers, tam);
 
   // write_numbers_array_to_txt_file(numbers, tam);
+
+  numbers = deallocates_array(numbers);
 
   return 0;
 }
