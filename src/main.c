@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
   // bigNum tam = atoi(argv[1]);
   bigNum i;
-  bigNum tam = 100;
+  bigNum tam = 1000;
 
   bigNum *numbers = NULL;
 
