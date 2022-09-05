@@ -13,6 +13,7 @@ bigNum *crate_new_array_with_malloc(bigNum *numbers, bigNum tam);
 bigNum *deallocates_array(bigNum *numbers);
 bigNum *create_ordered_numbers_array(bigNum *numbers, bigNum tam);
 bigNum *random_shuffle_numbers_array(bigNum *numbers, bigNum tam);
+void create_test_instances_files(bigNum tam);
 void print_array(bigNum arr[], bigNum n);
 void swap(bigNum *a, bigNum *b);
 
